@@ -19,22 +19,22 @@ const {POSTGRES_HOST,POSTGRES_PORT,POSTGRES_DB,POSTGRES_USER,POSTGRES_PASSWORD} 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',  //тип драйвера
-      host: POSTGRES_HOST,
-      port: parseInt(POSTGRES_PORT, 10),
-      username: POSTGRES_USER, //пароль и логин пользователя из темы про создание юзера
-      password: POSTGRES_PASSWORD,
-      database: POSTGRES_DB,//имя бд на которую выдавали доступы
-      entities: [User, Wish, Wishlist, Offer], //сущности описывающие бд, добавим их позже
-      synchronize: true,
       // type: 'postgres',  //тип драйвера
-      // host: "localhost",
-      // port: 5432,        //стандартный порт 5432
-      // username: 'student', //пароль и логин пользователя из темы про создание юзера
-      // password: '1488',
-      // database: 'kupipodariday',//имя бд на которую выдавали доступы
+      // host: POSTGRES_HOST,
+      // port: parseInt(POSTGRES_PORT, 10),
+      // username: POSTGRES_USER, //пароль и логин пользователя из темы про создание юзера
+      // password: POSTGRES_PASSWORD,
+      // database: POSTGRES_DB,//имя бд на которую выдавали доступы
       // entities: [User, Wish, Wishlist, Offer], //сущности описывающие бд, добавим их позже
       // synchronize: true,
+      type: 'postgres',  //тип драйвера
+      host: "localhost",
+      port: 5432,        //стандартный порт 5432
+      username: 'student', //пароль и логин пользователя из темы про создание юзера
+      password: 'student',
+      database: 'kupipodariday',//имя бд на которую выдавали доступы
+      entities: [User, Wish, Wishlist, Offer], //сущности описывающие бд, добавим их позже
+      synchronize: true,
     }),
     UsersModule,
     AuthModule,

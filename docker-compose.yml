@@ -9,6 +9,7 @@ services:
     image: compose-post-backend-opti
     ports: 
       - 4000:3000
+    restart: on-failure
     env_file: 
       - .env 
 
@@ -20,12 +21,14 @@ services:
     image: compose-post-frontend-opti
     ports: 
       - 8081:80
+    restart: on-failure
 
   postgres:
     container_name: post-postgres
     volumes:
       - postgres_data:/data/postgres
     image: postgres
+    restart: on-failure
     env_file: 
       - .env 
     
